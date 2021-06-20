@@ -1,0 +1,21 @@
+em++ main.cpp -s WASM=1 -o main.js 
+
+em++ main.cpp -o main.js -s EXPORTED_FUNCTIONS='["_int_sqrt"]' -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap"]'
+
+em++ main.cpp -o main.js -s MODULARIZE -s EXPORTED_RUNTIME_METHODS=['ccall'] // 
+
+emcc hello.c tinyexpr.c -o hello.html -s WASM=1 // for compling extra library 
+
+em++ main.cpp -s WASM=1 -o main.js -s EXPORTED_RUNTIME_METHODS='["ccall","cwrap"]'
+
+em++ main.cpp canvas.cpp -s WASM=1 -o main.js // more than 1 file
+em++ main.cpp --js-library library.js -o main.js
+em++ -O2 main.cpp canvas.cpp -s WASM=1 -o main.js // optimise the output-,-O1, O2 and -O3
+
+em++ main.cpp -s STANDALONE_WASM
+
+wasm2wat ex1.wasm -o ex1.wat
+
+
+em++ src/main.cpp src/canvas.cpp src/window.cpp src/assetsManager.cpp -s WASM=1 -o static/main.js
+em++ src/main.cpp src/canvas.cpp src/window.cpp src/assetsManager.cpp -s WASM=1 -o static/main.js -s EXPORTED_RUNTIME_METHODS=[cwrap]

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Game </title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<!-- <link rel="stylesheet" href="css/game.css" type="text/css"> -->
+</head>
+    <style>
+    body {
+        margin: 0;
+    }
+    #canvasArea {
+        display:flex;
+        /* justify-content:center;
+        align-items: center; */
+    }
+    #canvas {
+        /* width: 683px; */
+        width:100%;
+        background: gold;
+    }
+    #loading_screen {
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        text-align:center;
+        font-size:50px;
+        height:100%;
+        width:100%;
+        background:rgba(36, 38, 40, 0.9);
+        display: table;
+        z-index: 50;
+    }
+    #loader {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    </style>
+    <script>
+        const CANVAS_DATA ={
+            cvs:null,
+            ctx:null
+        }
+        const pictures = {};
+        const audios = {};
+        
+    </script>
+    <script src="static/main.js"> </script>
+    <body>
+        <section id="game">
+            <div id="canvasArea">
+                <canvas id="canvas" width="1366" height="768"> </canvas>
+            </div>
+         
+             <!-- <div id="loading_screen">
+                <div id="loader"><img src='assets/texture/swa_loader.gif'></div>
+            </div>
+            -->
+        </section>
+     
+        <script src="static/script.js"> </script>
+    </body>
+
+</html>
