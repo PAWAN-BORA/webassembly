@@ -12,7 +12,7 @@ UiButton::~UiButton()
 
 void UiButton::onMouseDown(Point* point) {
     std::cout << point->x << " " << point->y << std::endl;
-    if()
+    // if()
 }
 
 void UiButton::onMouseMove(Point* point) {

@@ -1,7 +1,7 @@
 
 const {exec} = require('child_process');
 const fs = require('fs');
-
+const http = require('http');
 let rootDir = "./src";
 let subPart = "";
 // fs.readdirSync(rootDir).forEach(file => {
@@ -44,3 +44,35 @@ function callBack(err, stdout, stderr) {
         console.log(stderr);
     }
 }
+
+const server = http.createServer((req, res)=>{
+
+    let url = req.url;
+    console.log(url);
+    let fileName = null;
+    if(url=='/'){
+        fileName = 'index.html';
+    } else {
+        fileName = '.'+url;
+    }
+
+    fs.readFile(fileName, (err, data)=>{
+        if(err){
+            res.writeHead(404, {'Content-Type':'text/html'});
+            res.write("Not Found!");
+            // console.log(err);
+        } else {
+            res.writeHead(200, {'Content-Type':'text/html'})
+            res.write(data);
+        }
+        res.end();
+    })
+   
+});
+
+server.listen(8000, (err)=>{
+    if(err){
+        console.log("err: "+err);
+    }
+    console.log("server is running at port 8000");
+})

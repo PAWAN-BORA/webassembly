@@ -1,11 +1,11 @@
 {
-  "name": "StartUp",
+  "name": "startup",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "add_path":"cd /d E:/WebAssambly/emsdk/ && emsdk_env.bat",
-    "build":"node config.js"
+    "build":"nodemon config.js"
   },
   "keywords": [],
   "author": "",
